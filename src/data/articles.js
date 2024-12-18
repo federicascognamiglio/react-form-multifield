@@ -5,7 +5,7 @@ const articles = [
         image: "https://picsum.photos/id/1/200",
         content: "LoremLorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quas ipsa magnam harum quidem sed molestias sit consectetur.",
         category: "Medium",
-        state: "Published"
+        state: true
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ const articles = [
         image: "https://picsum.photos/id/2/200",
         content: "LoremLorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quas ipsa magnam harum quidem sed molestias sit consectetur.",
         category: "Easy",
-        state: "Draft"
+        state: false
 
     },
     {
@@ -22,7 +22,7 @@ const articles = [
         image: "https://picsum.photos/id/4/200",
         content: "LoremLorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quas ipsa magnam harum quidem sed molestias sit consectetur.",
         category: "Hard",
-        state: "Draft"
+        state: true
     }
 ];
 
