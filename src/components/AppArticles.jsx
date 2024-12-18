@@ -53,12 +53,16 @@ function AppArticles() {
                 <form onSubmit={handleSubmit} className='mt-4'>
                     <div className="row">
                         <div className='col-6'>
-                            <label htmlFor="articleTitle" className='form-label'>Article Title</label>
+                            <label htmlFor="articleTitle" className='form-label'>Title</label>
                             <input name='title' className='form-control' value={formData.title} onChange={handleChange} type="text" id='articleTitle' />
                         </div>
                         <div className="col-6">
-                            <label htmlFor="articleImage" className='form-label'>Article Image</label>
+                            <label htmlFor="articleImage" className='form-label'>Image</label>
                             <input name='image' className='form-control' value={formData.image} onChange={handleChange} type="text" id='articleImage' />
+                        </div>
+                        <div className="col-6">
+                            <label htmlFor="articleContent" className='form-label mt-4'>Content</label>
+                            <textarea name="content" className='form-control' value={formData.content} onChange={handleChange} id="articleContent"></textarea>
                         </div>
                         {/* <div className="w-50 mt-3">
                         <select onChange={(event) => setState(event.target.value)} className="form-select" aria-label="Article State">
@@ -83,7 +87,8 @@ function AppArticles() {
                             <div className="card">
                                 <img src={curArticle.image} alt="Placeholder image" />
                                 <div className="card-body">
-                                    <h6 className='card-title'>{curArticle.title}</h6>
+                                    <h6 className='card-title'><strong>{curArticle.title}</strong></h6>
+                                    <p className='card-text'>{curArticle.content}</p>
                                     {/* <span className={`btn btn-sm ${checkStateClass(curArticle.state)}`}>{curArticle.state}</span> */}
                                     <button onClick={() => handleDelete(curArticle.id)} className='btn btn-outline-danger'>Delete</button>
                                 </div>
