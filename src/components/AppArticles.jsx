@@ -1,19 +1,17 @@
 import { useState } from 'react'
 import articles from '../data/articles';
 
+// Valori di partenza Form
+const initialFormData = {
+    title: "",
+    image: "",
+    content: "",
+    category: "",
+    state: ""
+};
+
 function AppArticles() {
     const [articlesList, setArticlesList] = useState(articles);
-
-    // Valori di partenza Form
-    const initialFormData = {
-        title: "",
-        image: "",
-        content: "",
-        category: "",
-        state: ""
-    };
-
-    // Valori input 
 
     // Valori per form
     const [formData, setFormData] = useState(initialFormData);
@@ -22,11 +20,23 @@ function AppArticles() {
     const handleSubmit = (event) => {
         event.preventDefault()
         const newArticle = {
-            ...initialFormData,
+            ...formData,
             id: Date.now(),
         }
         setArticlesList([...articlesList, newArticle]);
         setFormData(initialFormData)
+    }
+
+    // InputChange Function
+    const handleChange = (event) => {
+        const keyToChange = event.target.name;
+        let newValue;
+        (event.target.type === "checkbox") ? (newValue = event.target.checked) : (newValue = event.target.value)
+        const newData = {
+            ...formData,
+            [keyToChange]: newValue
+        }
+        setFormData(newData)
     }
 
     // Delete Function
@@ -43,7 +53,7 @@ function AppArticles() {
                 <form onSubmit={handleSubmit} className='mt-4'>
                     <div className='w-50'>
                         <label htmlFor="articleTitle" className='form-label'>Article Title</label>
-                        <input className='form-control' value={formData.title} onChange={(event) => setTitle(event.target.value)} type="text" id='articleTitle' />
+                        <input name='title' className='form-control' value={formData.title} onChange={handleChange} type="text" id='articleTitle' />
                     </div>
                     {/* <div className="w-50 mt-3">
                         <label htmlFor="articleAuthor" className='form-label'>Article Author</label>
@@ -67,7 +77,7 @@ function AppArticles() {
                     <div key={index} className="mb-3">
                         <div className="card">
                             <div className="card-body">
-                                <h6 className='card-title'>{curArticle.title}</h6>          
+                                <h6 className='card-title'>{curArticle.title}</h6>
                                 {/* <span className={`btn btn-sm ${checkStateClass(curArticle.state)}`}>{curArticle.state}</span> */}
                                 <button onClick={() => handleDelete(curArticle.id)} className='btn btn-outline-danger'>Delete</button>
                             </div>
@@ -80,14 +90,14 @@ function AppArticles() {
 
 export default AppArticles;
 
- // const checkStateClass = (selectedValue) => {
-    //     let stateClass;
-    //     if (selectedValue === "Published") {
-    //         stateClass = "btn-success"
-    //     } else if (selectedValue === "Draft") {
-    //         stateClass = "btn-warning"
-    //     } else {
-    //         stateClass = "btn-primary"
-    //     }
-    //     return stateClass;
-    // }
+// const checkStateClass = (selectedValue) => {
+//     let stateClass;
+//     if (selectedValue === "Published") {
+//         stateClass = "btn-success"
+//     } else if (selectedValue === "Draft") {
+//         stateClass = "btn-warning"
+//     } else {
+//         stateClass = "btn-primary"
+//     }
+//     return stateClass;
+// }
