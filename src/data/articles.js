@@ -4,16 +4,16 @@ const articles = [
         title: "Introduzione a JavaScript",
         image: "https://picsum.photos/id/1/200",
         content: "LoremLorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quas ipsa magnam harum quidem sed molestias sit consectetur.",
-        category: "Horror",
-        state: "published"
+        category: "Medium",
+        state: "Published"
     },
     {
         id: 2,
         title: "Guida CSS per Principianti",
         image: "https://picsum.photos/id/2/200",
         content: "LoremLorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quas ipsa magnam harum quidem sed molestias sit consectetur.",
-        category: "Thriller",
-        state: "draft"
+        category: "Easy",
+        state: "Draft"
 
     },
     {
@@ -21,8 +21,8 @@ const articles = [
         title: "Come usare React nel 2024",
         image: "https://picsum.photos/id/4/200",
         content: "LoremLorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quas ipsa magnam harum quidem sed molestias sit consectetur.",
-        category: "Extreme",
-        state: "draft"
+        category: "Hard",
+        state: "Draft"
     }
 ];
 
