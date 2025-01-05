@@ -11,6 +11,8 @@ const initialFormData = {
     tags: []
 };
 
+const availableTags = ["Beginner", "Advanced", "JS", "CSS", "HTML", "Programming", "FrontEnd", "BackEnd"];
+
 function AppArticles() {
     const [articlesList, setArticlesList] = useState(articles);
 
@@ -123,38 +125,10 @@ function AppArticles() {
                         <div className="col-12 mt-4">
                             <p className='fw-medium'>Tags:</p>
                             <div className='d-flex justify-content-between'>
-                                <div className="form-check form-check-inline">
-                                    <input type="checkbox" checked={selectedChecks.includes("Beginner")} onChange={handleMultipleCheckbox} className='form-check-input me-2' id='ckeckBeginner' value="Beginner" />
-                                    <label htmlFor="checkBeginner" className='form-check-label'>Beginner</label>
-                                </div>
-                                <div className="form-check form-check-inline">
-                                    <input type="checkbox" checked={selectedChecks.includes("Advanced")} onChange={handleMultipleCheckbox} className='form-check-input me-2' id='ckeckAdvanced' value="Advanced" />
-                                    <label htmlFor="ckeckAdvanced" className='form-check-label'>Advanced</label>
-                                </div>
-                                <div className="form-check form-check-inline">
-                                    <input type="checkbox" checked={selectedChecks.includes("JS")} onChange={handleMultipleCheckbox} className='form-check-input me-2' id='ckeckJs' value="JS" />
-                                    <label htmlFor="ckeckJs" className='form-check-label'>JS</label>
-                                </div>
-                                <div className="form-check form-check-inline">
-                                    <input type="checkbox" checked={selectedChecks.includes("CSS")} onChange={handleMultipleCheckbox} className='form-check-input me-2' id='ckeckCss' value="CSS" />
-                                    <label htmlFor="ckeckCss" className='form-check-label'>CSS</label>
-                                </div>
-                                <div className="form-check form-check-inline">
-                                    <input type="checkbox" checked={selectedChecks.includes("HTML")} onChange={handleMultipleCheckbox} className='form-check-input me-2' id='ckeckHtml' value="HTML" />
-                                    <label htmlFor="ckeckHtml" className='form-check-label'>HTML</label>
-                                </div>
-                                <div className="form-check form-check-inline">
-                                    <input type="checkbox" checked={selectedChecks.includes("Programming")} onChange={handleMultipleCheckbox} className='form-check-input me-2' id='ckeckProgramming' value="Programming" />
-                                    <label htmlFor="ckeckProgramming" className='form-check-label'>Programming</label>
-                                </div>
-                                <div className="form-check form-check-inline">
-                                    <input type="checkbox" checked={selectedChecks.includes("FrontEnd")} onChange={handleMultipleCheckbox} className='form-check-input me-2' id='ckeckFront' value="FrontEnd" />
-                                    <label htmlFor="ckeckFront" className='form-check-label'>FrontEnd</label>
-                                </div>
-                                <div className="form-check form-check-inline">
-                                    <input type="checkbox" checked={selectedChecks.includes("BackEnd")} onChange={handleMultipleCheckbox} className='form-check-input me-2' id='ckeckBack' value="BackEnd" />
-                                    <label htmlFor="ckeckBack" className='form-check-label'>BackEnd</label>
-                                </div>
+                                {availableTags.map((curTag, index) => <div key={index} className="form-check form-check-inline">
+                                    <input type="checkbox" checked={selectedChecks.includes(curTag)} onChange={handleMultipleCheckbox} className='form-check-input me-2' id={'ckeck' + curTag} value={curTag} />
+                                    <label htmlFor={'ckeck' + curTag} className='form-check-label'>{curTag}</label>
+                                </div>)}
                             </div>
                         </div>
                     </div>
